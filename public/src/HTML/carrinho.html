@@ -145,8 +145,39 @@
 
     <div class="text-right mt-4">
       <h5>Total: <span id="total-valor">R$ 0,00</span></h5>
-      <button class="btn btn-success mt-2 btn-block btn-lg">Finalizar compra</button>
+      <button class="btn btn-success mt-2 btn-block btn-lg" onclick="finalizarCompra()">
+  Finalizar compra
+</button>
+
     </div>
+
+    <!-- MODAL DE FINALIZAÇÃO -->
+<div class="modal fade" id="modalFinalizar" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Compra Finalizada!</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body text-center">
+        <p>Seus produtos foram processados com sucesso!</p>
+        <img id="imagemProdutos" src="" 
+             class="img-fluid rounded border"
+             style="max-height: 300px; object-fit: cover;">
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -255,6 +286,30 @@
   localStorage.setItem("carrinho", JSON.stringify(itens));
   renderCarrinho(itens);
   }
+
+  function finalizarCompra() {
+  if (itens.length === 0) {
+    alert("Seu carrinho está vazio!");
+    return;
+  }
+
+  // Coleta a primeira imagem (ou coloca uma padrão)
+  const primeiraImagem = itens[0]?.imagem || "../images/produto-default.png";
+
+  // Define a imagem no modal
+  document.getElementById("imagemProdutos").src = primeiraImagem;
+
+  // Exibe o modal
+  $("#modalFinalizar").modal("show");
+
+  // Após fechar o modal → limpar o carrinho
+  $('#modalFinalizar').on('hidden.bs.modal', function () {
+    localStorage.removeItem("carrinho");
+    itens = [];
+    renderCarrinho(itens);
+  });
+}
+
 </script>
 
 </body>

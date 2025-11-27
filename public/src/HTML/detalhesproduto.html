@@ -197,32 +197,36 @@
   }
 
   function adicionarAoCarrinho() {
-    if (!produto) return;
+  if (!produto) return;
+  
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  
+  const produtoExistente = carrinho.find(item => item.id === produto.id);
+  
+  if (!produtoExistente) {
+
+    const produtoCarrinho = {
+      id: produto.id,
+      nome: produto.nome,
+      preco: produto.PrecoOriginal,
+      desconto: (produto.PrecoOriginal - produto.PrecoComDesconto) / produto.PrecoOriginal,
+      validade: produto.DataValidade,
+      imagem: `../images/${produto.imagem}`,
+      categoria: produto.categoria
+    };
     
-    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    
-    // Verifica se o produto já está no carrinho
-    const produtoExistente = carrinho.find(item => item.id === produto.id);
-    
-    if (!produtoExistente) {
-      // Adiciona informações necessárias para o carrinho
-      const produtoCarrinho = {
-        id: produto.id,
-        nome: produto.nome,
-        preco: produto.PrecoOriginal,
-        desconto: (produto.PrecoOriginal - produto.PrecoComDesconto) / produto.PrecoOriginal,
-        validade: produto.DataValidade,
-        imagem: `../images/${produto.imagem}`,
-        categoria: produto.categoria
-      };
-      
-      carrinho.push(produtoCarrinho);
-      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-      alert("Produto adicionado ao carrinho!");
-    } else {
-      alert("Este produto já está no carrinho!");
+    carrinho.push(produtoCarrinho);
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    // 🔹 ALERTA COM OPÇÃO DE IR PARA O CARRINHO
+    if (confirm("Produto adicionado ao carrinho!\n\nDeseja abrir o carrinho agora?")) {
+      window.location.href = "carrinho.html";  
     }
+
+  } else {
+    alert("Este produto já está no carrinho!");
   }
+}
 </script>
 
 </body>

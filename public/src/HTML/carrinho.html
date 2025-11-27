@@ -245,9 +245,15 @@
 
   // 🔹 3. Função para remover item
   function removerItem(index) {
-    itens.splice(index, 1);
-    localStorage.setItem("carrinho", JSON.stringify(itens));
-    renderCarrinho(itens);
+  // Confirmação inicial
+  const confirmar = confirm("Deseja realmente remover este item?");
+
+  if (!confirmar) return;
+
+  // Remove o item
+  itens.splice(index, 1);
+  localStorage.setItem("carrinho", JSON.stringify(itens));
+  renderCarrinho(itens);
   }
 </script>
 

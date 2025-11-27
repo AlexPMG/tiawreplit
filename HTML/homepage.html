@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reduz</title>
+  <!--CSS DO BOOTSTRAP-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!--JAVA SCRIPT DO BOOTSTRAP-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <!--ICONS DO BOOTSTRAP-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- CSS do Projeto -->
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!--HEADER-->
+<header class="header">
+  <!-- NAV-PRIMARY -->
+  <nav class="navbar navbar-expand-lg navbar-light primary-nav" style="background-color: #6d1e0d;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="../images/logoReduz.png" class="logo-nav" width="140" alt="Logo">
+      </a>
+
+      <!-- ícones à direita -->
+      <ul class="navbar-nav d-flex flex-row align-items-center">
+        <!-- Ícone de coração (link simples) -->
+        <li class="nav-item me-2">
+          <a class="nav-link" href="favoritos.html" aria-label="Favoritos">
+            <i class="bi bi-heart" style="color:#ffffff;"></i>
+          </a>
+        </li>
+
+        <!-- Ícone de pessoa (link simples) -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" aria-label="Conta">
+            <i class="fas fa-user" style="color:#f6ecdc;"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- NAV-SECONDARY -->
+  <nav class="navbar navbar-expand-lg navbar-dark secondary-nav border-top" style="background-color: #6d1e0d; color:#f6ecdc;">
+    <div class="container-fluid">
+      <!-- botão mobile-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" style="color: #f6ecdc;">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: #f6ecdc;">Produto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: #f6ecdc;">Lojas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: #f6ecdc;">Carrinho</a>
+          </li>
+
+          <!-- Dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false" style="color:#f6ecdc; background-color: transparent; border: none;">
+              Cadastro
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="border:none; background-color:#ffffff;">
+              <li><a class="dropdown-item" href="#" style="color: #000000;">Produto</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!--CSS auxiliar-->
+<style>
+  .primary-nav .nav-link, .secondary-nav .nav-link { color: #f6ecdc !important; }
+
+  .secondary-nav .navbar-toggler { border-color: rgba(255,255,255,0.35); }
+
+  .secondary-nav .dropdown-menu { color: #000; }
+</style>
+
+
+  <!--CAROUSEL-->
+  <div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../images/banner1.png" class="d-block w-100" alt="Caroucel 1">
+    </div>
+    <div class="carousel-item">
+      <img src="../images/banner2.png" class="d-block w-100" alt="Carroucel 2">
+    </div>
+    <div class="carousel-item">
+      <img src="../images/banner3.png" class="d-block w-100" alt="Caroucel 3">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  <!-- Produtos -->
+    
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <h2 class="text-center">Produtos em promoção</h2>
+                </div>
+            </div>
+            
+          
+            <div id="loading" class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Carregando...</span>
+                </div>
+                <p class="mt-3">Carregando produtos...</p>
+            </div>
+            
+          
+            <div id="lista-produtos" class="row g-4">
+                <!-- Os cards serão inseridos aqui pelo JavaScript -->
+            </div>
+            
+       
+            <div id="noResults" class="text-center py-5" style="display: none;">
+                <h3>Nenhum produto encontrado</h3>
+                <p>Desculpe, não consguimos carregar os produtos desta seção no momento.</p>
+            </div>
+        </div>
+      </div>
+      
+      <div id="lista-produtos" class="row g-4"></div>
+
+      <div id="noResults" class="text-center py-5" style="display: none;">
+        <h3>Nenhum produto encontrado</h3>
+        <p>Tente selecionar outra categoria</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer mt-auto py-2 border-top" style="background-color:#6d1e0d;">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-2 text-center text-lg-start mb-2 mb-lg-0">
+          <a class="navbar-brand" href="index.html">
+            <img src="../images/logoReduz.png" width="140" alt="Reduz Logo">
+          </a>
+        </div>
+        <div class="col-12 col-lg-8 text-center">
+          <ul class="list-unstyled d-flex justify-content-center gap-3 mb-0 small">
+            <li><a href="#" style="color:#f6ecdc;">Sobre nós</a></li>
+            <li><a href="#" style="color:#f6ecdc;">Contato</a></li>
+            <li><a href="#" style="color:#f6ecdc;">Termos</a></li>
+            <li><a href="#" style="color:#f6ecdc;">Ajuda</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-2 text-center text-lg-end">
+          <a href="#" class="fs-5 text-light me-2"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="fs-5 text-light me-2"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="fs-5 text-light"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../Js/homeScript.js"></script>
+
+  <!-- Script do Projeto -->
+  <script>
+    const produtos = [
+      { id: 1, nome: "Iogurte Natural 170g", preco: 2.99, desconto: (4.5 - 2.99) / 4.5, validade: "10/10/2025", imagem: "../images/mercado.png", categoria: "Laticínios" },
+      { id: 2, nome: "Pão de Queijo", preco: 13.99, desconto: (15.99 - 13.99) / 15.99, validade: "02/11/2025", imagem: "../images/padaria.png", categoria: "Padaria" },
+      { id: 3, nome: "Leite Integral", preco: 3.99, desconto: (4.5 - 3.99) / 4.5, validade: "05/11/2025", imagem: "../images/mercado.png", categoria: "Laticínios" },
+      { id: 4, nome: "Arroz Branco", preco: 5.2, desconto: (5.8 - 5.2) / 5.8, validade: "01/10/2027", imagem: "../images/mercado.png", categoria: "Mercearia" },
+      { id: 5, nome: "Feijão Preto", preco: 6.49, desconto: (7.2 - 6.49) / 7.2, validade: "01/08/2027", imagem: "../images/mercado.png", categoria: "Mercearia" },
+      { id: 6, nome: "Açúcar Refinado", preco: 3.1, desconto: (3.5 - 3.1) / 3.5, validade: "15/09/2027", imagem: "../images/mercado.png", categoria: "Mercearia" },
+      { id: 7, nome: "Óleo de Soja", preco: 5.99, desconto: (6.99 - 5.99) / 6.99, validade: "01/12/2027", imagem: "../images/mercado.png", categoria: "Mercearia" },
+      { id: 8, nome: "Macarrão Espaguete", preco: 2.79, desconto: (3.1 - 2.79) / 3.1, validade: "01/11/2027", imagem: "../images/mercado.png", categoria: "Mercearia" },
+      { id: 9, nome: "Ovos Brancos (Dúzia)", preco: 8.99, desconto: (10 - 8.99) / 10, validade: "04/11/2025", imagem: "../images/mercado.png", categoria: "Hortifrúti" },
+      { id: 10, nome: "Detergente para Louças", preco: 2.39, desconto: (2.8 - 2.39) / 2.8, validade: "01/01/2027", imagem: "../images/mercado.png", categoria: "Limpeza" },
+      { id: 11, nome: "Sabonete em Barra", preco: 1.59, desconto: (1.99 - 1.59) / 1.99, validade: "01/03/2027", imagem: "../images/mercado.png", categoria: "Higiene Pessoal" },
+      { id: 12, nome: "Papel Higiênico (Rolo)", preco: 1.29, desconto: (1.5 - 1.29) / 1.5, validade: "07/11/2025", imagem: "../images/mercado.png", categoria: "Higiene Pessoal" },
+      { id: 13, nome: "Peito de Frango", preco: 19.99, desconto: (22.9 - 19.99) / 22.9, validade: "10/11/2025", imagem: "../images/mercado.png", categoria: "Açougue" },
+      { id: 14, nome: "Tomate", preco: 6.99, desconto: (8.9 - 6.99) / 8.9, validade: "09/11/2025", imagem: "../images/hortifruti.png", categoria: "Hortifrúti" },
+      { id: 15, nome: "Banana", preco: 3.99, desconto: (4.99 - 3.99) / 4.99, validade: "05/11/2025", imagem: "../images/hortifruti.png", categoria: "Hortifrúti" },
+      { id: 16, nome: "Manteiga", preco: 8.49, desconto: (9.5 - 8.49) / 9.5, validade: "15/11/2025", imagem: "../images/mercado.png", categoria: "Laticínios" },
+      { id: 17, nome: "Pão de Forma", preco: 6.49, desconto: (7.99 - 6.49) / 7.99, validade: "08/11/2025", imagem: "../images/padaria.png", categoria: "Padaria" },
+      { id: 18, nome: "Refrigerante Cola", preco: 4.49, desconto: (5 - 4.49) / 5, validade: "01/11/2025", imagem: "../images/mercado.png", categoria: "Bebidas" },
+      { id: 19, nome: "Cerveja Lager", preco: 3.79, desconto: (4.2 - 3.79) / 4.2, validade: "16/11/2025", imagem: "../images/mercado.png", categoria: "Bebidas" },
+      { id: 20, nome: "Batata Inglesa", preco: 5.49, desconto: (6.5 - 5.49) / 6.5, validade: "06/11/2025", imagem: "../images/hortifruti.png", categoria: "Hortifrúti" }
+    ];
+
+    function montarPaginaHome(dados) {
+      const container = document.getElementById('lista-produtos');
+      const noResults = document.getElementById('noResults');
+
+      if (dados.length === 0) {
+        container.innerHTML = '';
+        noResults.style.display = 'block';
+        return;
+      }
+
+      noResults.style.display = 'none';
+
+      container.innerHTML = dados.map(item => {
+        const precoDesconto = (item.preco * (1 - item.desconto)).toFixed(2);
+        return `
+          <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="card h-100">
+              <img src="${item.imagem}" class="card-img-top" alt="${item.nome}" style="height:200px; object-fit:contain; padding:10px;">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">${item.nome}</h5>
+                <h6><s>R$ ${item.preco.toFixed(2).replace('.', ',')}</s></h6>
+                <h5><strong>R$ ${precoDesconto.replace('.', ',')}</strong></h5>
+                <h6 style="color:#6d1e0d"><strong>${item.validade}</strong></h6>
+                <button onclick="verDetalhes(${item.id})" class="btn btn-primary mt-auto">Ver Detalhes</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function verDetalhes(id) {
+      const produtoSelecionado = produtos.find(p => p.id === id);
+      if (!produtoSelecionado) return alert("Produto não encontrado!");
+      localStorage.setItem("produtoSelecionado", JSON.stringify(produtoSelecionado));
+      window.location.href = "detalhesproduto.html";
+    }
+
+    function popularCategorias() {
+      const selectCategoria = document.getElementById('categoryFilter');
+      const categoriasUnicas = [...new Set(produtos.map(p => p.categoria))];
+      selectCategoria.innerHTML = '<option value="todos">Todos os Produtos</option>';
+      categoriasUnicas.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat;
+        selectCategoria.appendChild(option);
+      });
+
+      selectCategoria.addEventListener('change', (e) => {
+        const valor = e.target.value;
+        if (valor === 'todos') montarPaginaHome(produtos);
+        else montarPaginaHome(produtos.filter(p => p.categoria === valor));
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      montarPaginaHome(produtos);
+      popularCategorias();
+    });
+  </script>
+</body>
+
+</html>

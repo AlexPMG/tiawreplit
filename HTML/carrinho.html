@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reduz: Carrinho</title>
+
+  <!--CSS DO BOOTSTRAP-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!--FONT AWESOME / ICONS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <!--FONT DO PROJETO-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!--CSS DO PROJETO-->
+  <link rel="stylesheet" href="home.css">
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* RESPONSIVIDADE TABELA */
+    @media (max-width: 576px) {
+      table thead {
+        display: none;
+      }
+
+      table tbody tr {
+        display: flex;
+        flex-direction: column;
+        background: #f8f9fa;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        border: none;
+      }
+
+      table tbody td img {
+        margin-right: 10px;
+      }
+
+      table tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+      }
+
+      .text-right {
+        text-align: center !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <!-- NAV-PRIMARY -->
+    <nav class="navbar navbar-expand-lg navbar-light primary-nav" style="background-color: #6d1e0d;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="../images/logoReduz.png" class="logo-nav" width="140" alt="Logo">
+        </a>
+
+        <form class="d-none d-lg-flex mx-auto search-form" style="max-width: 500px;">
+          <div class="input-group">
+            <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search" style="background-color: #ffffff;">
+            <button class="btn btn-outline-secondary" type="submit" style="background-color: #ffffff;">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+
+        <ul class="navbar-nav d-flex flex-row align-items-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user" style="color:#f6ecdc"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- NAV-SECONDARY -->
+    <nav class="navbar navbar-expand-lg navbar-dark secondary-nav border-top" style="background-color: #6d1e0d; color:#f6ecdc;">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação" style="color:#ffffff;">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <form class="d-flex w-100 d-lg-none search-form-mobile my-2" style="color: white;">
+          <div class="input-group">
+            <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search">
+            <button class="btn btn-outline" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active"><a class="nav-link" href="index.html" style="color: #f6ecdc;">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" style="color: #f6ecdc;">Produto</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" style="color: #f6ecdc;">Lojas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" style="color: #f6ecdc;">Carrinho</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" style="color: #f6ecdc;">Cadastro</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main class="container mb-5">
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Produtos</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Desconto</th>
+            <th scope="col">Valor Pós-Desconto</th>
+            <th scope="col">Data de validade</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody id="lista-carrinho">
+          <!-- Itens via JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-right mt-4">
+      <h5>Total: <span id="total-valor">R$ 0,00</span></h5>
+      <button class="btn btn-success mt-2 btn-block btn-lg">Finalizar compra</button>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer mt-auto py-2 border-top" style="background-color:#6d1e0d;">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-2 text-center text-lg-start mb-2 mb-lg-0">
+          <a class="navbar-brand" href="index.html">
+            <img src="../images/logoReduz.png" class="logo-footer" width="140" alt="Reduz Logo">
+          </a>
+        </div>
+
+        <div class="col-12 col-lg-8">
+          <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
+            <ul class="list-unstyled d-flex flex-row gap-3 mb-2 mb-lg-0 small">
+              <li><a href="#" class="text-decoration-none mr-3" style="color:#f6ecdc;">Sobre nós</a></li>
+              <li><a href="#" class="text-decoration-none mr-3" style="color:#f6ecdc;">Contato</a></li>
+              <li><a href="#" class="text-decoration-none mr-3" style="color:#f6ecdc;">Termos</a></li>
+              <li><a href="#" class="text-decoration-none" style="color:#f6ecdc;">Ajuda</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-2 text-center text-lg-end">
+          <div class="d-flex justify-content-center justify-content-lg-end gap-2">
+            <a href="#" class="fs-5" style="color:#f6ecdc;"><i class="fab fa-instagram mr-3"></i></a>
+            <a href="#" class="fs-5" style="color:#f6ecdc;"><i class="fab fa-facebook mr-3"></i></a>
+            <a href="#" class="fs-5" style="color:#f6ecdc;"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JS DO BOOTSTRAP ===== -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+  <!-- ===== JS DO CARRINHO ===== -->
+<script>
+  const lista = document.getElementById("lista-carrinho");
+  const totalValor = document.getElementById("total-valor");
+
+  // 🔹 1. Recupera o carrinho do localStorage (ou cria um vazio)
+  let itens = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  // 🔹 2. Renderiza o carrinho na tela
+  renderCarrinho(itens);
+
+  function renderCarrinho(itens) {
+    lista.innerHTML = "";
+    let total = 0;
+
+    if (itens.length === 0) {
+      lista.innerHTML = `
+        <tr><td colspan="6" class="text-center text-muted">Seu carrinho está vazio 😢</td></tr>
+      `;
+      totalValor.textContent = "R$ 0,00";
+      return;
+    }
+
+    itens.forEach((item, index) => {
+      const precoDesconto = item.preco * (1 - item.desconto);
+      total += precoDesconto;
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td data-label="Produto">
+          <div class="d-flex align-items-center">
+            <img src="${item.imagem}" alt="${item.nome}" class="mr-3 rounded" width="80" height="80">
+            <span>${item.nome}</span>
+          </div>
+        </td>
+        <td data-label="Valor">R$ ${item.preco.toFixed(2).replace('.', ',')}</td>
+        <td data-label="Desconto">${(item.desconto*100).toFixed(0)}%</td>
+        <td data-label="Valor Pós-Desconto">R$ ${precoDesconto.toFixed(2).replace('.', ',')}</td>
+        <td data-label="Validade">${item.validade}</td>
+        <td data-label="Ações" class="text-center">
+          <button class="btn btn-outline-danger btn-sm" onclick="removerItem(${index})">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      `;
+      lista.appendChild(tr);
+    });
+
+    totalValor.textContent = "R$ " + total.toFixed(2).replace('.', ',');
+  }
+
+  // 🔹 3. Função para remover item
+  function removerItem(index) {
+    itens.splice(index, 1);
+    localStorage.setItem("carrinho", JSON.stringify(itens));
+    renderCarrinho(itens);
+  }
+</script>
+
+</body>
+</html>

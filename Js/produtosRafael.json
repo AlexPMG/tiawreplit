@@ -1,0 +1,33 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "Nome": "Empresa Exemplo",
+      "CNPJ": "12345678000199",
+      "Email": "empresa@exemplo.com",
+      "Senha": "12345"
+    }
+  ],
+  "produtos": [
+    {
+      "id": "6d00",
+      "nome": "teste2",
+      "descricao": "teste novodsds",
+      "categoria": "padaria",
+      "validade": "2222-02-22",
+      "precoOriginal": 2,
+      "precoDesconto": 1,
+      "imagem": "../images/padaria.png"
+    },
+    {
+      "id": "3e7d",
+      "nome": "segfsgfd",
+      "descricao": "gdfgfd",
+      "categoria": "mercado",
+      "validade": "3333-03-31",
+      "precoOriginal": 23,
+      "precoDesconto": 12,
+      "imagem": "../images/mercado.png"
+    }
+  ]
+}

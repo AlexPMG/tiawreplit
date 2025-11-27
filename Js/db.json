@@ -1,0 +1,17 @@
+{
+  "usuarios": [
+    {
+      "id": "4f8a",
+      "Nome": "HEBERT TADEU DE CASTRO LIBERATO",
+      "Celular": "31985503628",
+      "CPF_CNPJ": "11055077693",
+      "Tipo": "comprador",
+      "Email": "hebertliberato@gmail.com",
+      "Senha": "fodas",
+      "Endereco": "Rua Sao Borja",
+      "Carrinho": {
+        "ID": null
+      }
+    }
+  ]
+}

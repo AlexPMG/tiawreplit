@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Produto | Reduz</title>
+
+  <!-- BOOTSTRAP 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- ICONES -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS GLOBAL -->
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100" style="font-family: 'Montserrat', sans-serif;">
+
+  <!-- HEADER FIXO BOOTSTRAP -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6d1e0d;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="../images/logoReduz.png" class="logo-nav" width="140" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuSanduiche"
+          aria-controls="menuSanduiche" aria-expanded="false" aria-label="Alternar navegação">
+          <i class="fas fa-bars" style="color:#f6ecdc; font-size:1.5rem;"></i>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="menuSanduiche">
+          <ul class="navbar-nav text-center">
+            <li class="nav-item"><a href="index.html" class="nav-link text-light">Home</a></li>
+            <li class="nav-item"><a href="mostrarprodutos.html" class="nav-link text-light">Produtos</a></li>
+            <li class="nav-item"><a href="cadastro.html" class="nav-link text-light">Cadastrar Produto</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-light">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container my-5 flex-grow-1">
+    <h2 class="mb-4 text-center text-lg-start fw-bold" style="color:#6d1e0d;">Cadastro de Produto</h2>
+
+    <div id="mensagem" class="text-center mb-4"></div>
+
+    <!-- FORMULÁRIO -->
+    <form>
+      <div class="mb-3">
+        <label for="nomeProduto" class="form-label">Nome do produto:</label>
+        <input type="text" class="form-control" id="nomeProduto" placeholder="Digite o nome do produto">
+      </div>
+
+      <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição:</label>
+        <textarea class="form-control" id="descricao" rows="3" placeholder="Digite uma breve descrição do produto"></textarea>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="categoria" class="form-label">Categoria:</label>
+          <select class="form-select" id="categoria">
+            <option value="" selected disabled>Selecione uma categoria</option>
+            <option value="padaria">Padaria</option>
+            <option value="mercado">Mercado</option>
+            <option value="hortifruti">Hortifruti</option>
+            <option value="doceria">Doceria</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="validade" class="form-label">Data de validade:</label>
+          <input type="date" class="form-control" id="validade">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="precoOriginal" class="form-label">Preço original:</label>
+          <input type="number" step="0.01" class="form-control" id="precoOriginal" placeholder="R$ 0,00">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="precoDesconto" class="form-label">Preço com desconto:</label>
+          <input type="number" step="0.01" class="form-control" id="precoDesconto" placeholder="R$ 0,00">
+        </div>
+      </div>
+
+      <div class="text-center my-4">
+        <p class="fw-semibold mb-2">Pré-visualização da imagem:</p>
+        <img id="previewImagem" src="../images/placeholder.png" alt="Prévia da imagem" width="180"
+          style="border-radius: 8px; border: 1px solid #ccc;">
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="reset" class="btn btn-secondary px-4 me-2">Cancelar</button>
+        <button type="submit" class="btn text-light px-4" style="background-color:#6d1e0d;">Salvar</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- MODAL DE CONFIRMAÇÃO -->
+  <div class="modal fade" id="modalConfirmaCadastro" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Produto cadastrado!</h5>
+        </div>
+        <div class="modal-body text-center">
+          Deseja cadastrar outro produto?
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary" id="btnSimCadastro">Sim</button>
+          <button type="button" class="btn btn-secondary" id="btnNaoCadastro">Não</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer mt-auto py-3 border-top text-center text-light" style="background-color:#6d1e0d;">
+    <div class="container">
+      <img src="../images/logoReduz.png" width="140" alt="Reduz Logo" class="mb-2">
+      <p class="mb-0 small">© 2025 Reduz - Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../Js/cadastroprodutos.js"></script>
+</body>
+</html>
